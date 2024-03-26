@@ -6,8 +6,12 @@ import {
   CartTitle,
   CartInfoArea,
 } from './style'
+import { useAtomValue } from 'jotai'
+import { cartAtom } from '@/atoms/cart'
 
 export const Header = () => {
+  const cart = useAtomValue(cartAtom)
+
   return (
     <HeaderRoot>
       <Title>WeMovies</Title>
@@ -15,7 +19,7 @@ export const Header = () => {
       <span>
         <CartInfoArea>
           <CartTitle>Meu carrinho</CartTitle>
-          <CartItemQuantity>0 itens</CartItemQuantity>
+          <CartItemQuantity>{cart.length} itens</CartItemQuantity>
         </CartInfoArea>
 
         <BasketIcon />

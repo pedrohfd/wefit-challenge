@@ -7,7 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 
     font-family: "Open Sans", sans-serif;
-
   }
-  
+
+  body {
+    background: ${({ theme }) => theme.colors.slate[500]};
+  }
 `

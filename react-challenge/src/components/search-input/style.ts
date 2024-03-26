@@ -47,3 +47,11 @@ export const Input = styled.input`
   @media (min-width: 768px) {
   }
 `
+
+export const Button = styled.button`
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+`

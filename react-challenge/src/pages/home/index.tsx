@@ -6,7 +6,14 @@ import { SearchInput } from '@/components/search-input'
 import { ProductCard } from '@/components/product-card'
 
 export const Home = () => {
-  const { products, isLoading } = useHomeController()
+  const {
+    isLoading,
+    search,
+    setSearch,
+    filteredProducts,
+    searchProducts,
+    products,
+  } = useHomeController()
 
   return (
     <Container>
@@ -15,15 +22,21 @@ export const Home = () => {
       {products.length === 0 && <ResourceNotFoundCard />}
 
       {products.length > 0 && (
-        <>
-          <SearchInput type="search" placeholder="Buscar filme pelo nome" />
+        <SearchInput
+          type="text"
+          placeholder="Buscar filme pelo nome"
+          value={search}
+          onChange={setSearch}
+          onBlur={searchProducts}
+        />
+      )}
 
-          <ProductCardArea>
-            {products.map((product) => (
-              <ProductCard {...product} key={product.id} />
-            ))}
-          </ProductCardArea>
-        </>
+      {filteredProducts.length > 0 && (
+        <ProductCardArea>
+          {filteredProducts.map((product) => (
+            <ProductCard {...product} key={product.id} />
+          ))}
+        </ProductCardArea>
       )}
     </Container>
   )
