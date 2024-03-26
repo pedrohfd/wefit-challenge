@@ -4,8 +4,16 @@ export const theme = {
       500: '#2F2E41',
     },
     zinc: {
+      100: '#FFFFFF',
+      300: '#CCCCCC',
       400: '#999999',
       500: '#333333',
+    },
+    blue: {
+      500: '#009EDD',
+    },
+    green: {
+      500: '#039B00',
     },
   },
 } as const
