@@ -1,10 +1,20 @@
+import { Header } from '@/components/header'
 import { Home } from '@/pages/home'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Outlet } from 'react-router-dom'
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route
+        element={
+          <>
+            <Header />
+            <Outlet />
+          </>
+        }
+      >
+        <Route path="/" element={<Home />} />
+      </Route>
     </Routes>
   )
 }
