@@ -1,4 +1,4 @@
-import { CartIcon } from '@/assets/icons/cart'
+import { BasketIcon } from '@/assets/icons/basket'
 import {
   Title,
   CartItemQuantity,
@@ -18,7 +18,7 @@ export const Header = () => {
           <CartItemQuantity>0 itens</CartItemQuantity>
         </CartInfoArea>
 
-        <CartIcon />
+        <BasketIcon />
       </span>
     </HeaderRoot>
   )
