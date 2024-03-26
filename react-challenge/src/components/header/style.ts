@@ -7,7 +7,7 @@ export const HeaderRoot = styled.header`
 
   width: 100%;
 
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
 
   justify-content: space-between;
 
@@ -20,7 +20,7 @@ export const HeaderRoot = styled.header`
   }
 
   @media (min-width: 768px) {
-    padding: 1.5rem 12rem;
+    padding: 1.5rem 0;
   }
 `
 
