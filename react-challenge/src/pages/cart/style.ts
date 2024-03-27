@@ -109,6 +109,8 @@ export const CheckoutButton = styled.button`
 
   text-transform: uppercase;
 
+  cursor: pointer;
+
   @media (min-width: 768px) {
     width: 14rem;
     height: 2.5rem;

@@ -19,6 +19,7 @@ export const Cart = () => {
     handleRemoveFromCart,
     handleDecrementQuantity,
     handleIncrementQuantity,
+    handleCheckout,
   } = useCartController()
 
   return (
@@ -56,7 +57,9 @@ export const Cart = () => {
               </TotalCartAmountValue>
             </span>
 
-            <CheckoutButton type="button">finalizar pedido</CheckoutButton>
+            <CheckoutButton type="button" onClick={handleCheckout}>
+              finalizar pedido
+            </CheckoutButton>
           </TotalCartAmountArea>
         </>
       )}

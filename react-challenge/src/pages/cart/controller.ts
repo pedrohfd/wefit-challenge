@@ -1,8 +1,10 @@
 import { cartAtom } from '@/atoms/cart'
 import { useAtom } from 'jotai'
+import { useNavigate } from 'react-router-dom'
 
 export const useCartController = () => {
   const [cart, setCart] = useAtom(cartAtom)
+  const navigate = useNavigate()
 
   const handleRemoveFromCart = (id: number) => {
     setCart((cart) => cart.filter((item) => item.id !== id))
@@ -26,10 +28,16 @@ export const useCartController = () => {
     )
   }
 
+  const handleCheckout = () => {
+    navigate('/checkout')
+    setCart([])
+  }
+
   return {
     cart,
     handleRemoveFromCart,
     handleIncrementQuantity,
     handleDecrementQuantity,
+    handleCheckout,
   }
 }
