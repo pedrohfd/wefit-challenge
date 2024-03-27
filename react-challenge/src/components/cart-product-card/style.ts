@@ -1,5 +1,11 @@
+/**
+ * Styles for the CartProductCard component.
+ */
 import styled from 'styled-components'
 
+/**
+ * Root container for the CartProductCard component.
+ */
 export const CartProductCardRoot = styled.div`
   display: flex;
 
@@ -18,6 +24,9 @@ export const CartProductCardRoot = styled.div`
   }
 `
 
+/**
+ * Content container for the CartProductCard component.
+ */
 export const CartProductCardContent = styled.section`
   width: 100%;
 
@@ -34,6 +43,9 @@ export const CartProductCardContent = styled.section`
   }
 `
 
+/**
+ * Top area container for the CartProductCard component.
+ */
 export const CartProductCardTopArea = styled.span`
   display: flex;
 
@@ -63,6 +75,9 @@ export const CartProductCardTopArea = styled.span`
   }
 `
 
+/**
+ * Bottom area container for the CartProductCard component.
+ */
 export const CartProductCardBottomArea = styled.span`
   display: flex;
 
@@ -86,6 +101,9 @@ export const CartProductCardBottomArea = styled.span`
   }
 `
 
+/**
+ * Title text for the CartProductCard component.
+ */
 export const CartProductCardTitle = styled.p`
   width: 100%;
 
@@ -95,6 +113,9 @@ export const CartProductCardTitle = styled.p`
   color: ${({ theme }) => theme.colors.slate[500]};
 `
 
+/**
+ * Price text for the CartProductCard component.
+ */
 export const CartProductCardPrice = styled.p`
   font-size: 1rem;
   font-weight: 700;
@@ -116,6 +137,9 @@ export const CartProductCardPrice = styled.p`
   }
 `
 
+/**
+ * Quantity area container for the CartProductCard component.
+ */
 export const CartProductCardQuantityArea = styled.div`
   display: flex;
 
@@ -125,6 +149,9 @@ export const CartProductCardQuantityArea = styled.div`
   gap: 0.6rem;
 `
 
+/**
+ * Quantity subtract button for the CartProductCard component.
+ */
 export const CartProductCardQuantitySub = styled.button`
   border: none;
   background-color: transparent;
@@ -134,6 +161,9 @@ export const CartProductCardQuantitySub = styled.button`
   justify-content: center;
 `
 
+/**
+ * Quantity display for the CartProductCard component.
+ */
 export const CartProductCardQuantity = styled.div`
   display: flex;
 
@@ -152,6 +182,9 @@ export const CartProductCardQuantity = styled.div`
   border-radius: 0.25rem;
 `
 
+/**
+ * Quantity add button for the CartProductCard component.
+ */
 export const CartProductCardQuantityAdd = styled.button`
   border: none;
   background-color: transparent;
@@ -161,6 +194,9 @@ export const CartProductCardQuantityAdd = styled.button`
   justify-content: center;
 `
 
+/**
+ * Total amount title text for the CartProductCard component.
+ */
 export const CartProductCardTotalAmountTitle = styled.p`
   text-transform: uppercase;
 
@@ -174,6 +210,9 @@ export const CartProductCardTotalAmountTitle = styled.p`
   }
 `
 
+/**
+ * Total amount text for the CartProductCard component.
+ */
 export const CartProductCardTotalAmount = styled.p`
   font-size: 1rem;
   font-weight: 700;

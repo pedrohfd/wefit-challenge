@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   ResourceNotFoundRoot,
   ResourceNotFoundMessage,
@@ -16,9 +17,11 @@ export const ResourceNotFoundCard = () => {
         <img src={ResourceNotFoundImage} alt="resource not found" />
       </div>
 
-      <ResourceNotFoundButton type="button">
-        Recarregar página
-      </ResourceNotFoundButton>
+      <Link to={'/'}>
+        <ResourceNotFoundButton type="button">
+          Recarregar página
+        </ResourceNotFoundButton>
+      </Link>
     </ResourceNotFoundRoot>
   )
 }

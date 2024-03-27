@@ -78,6 +78,8 @@ export const ResourceNotFoundButton = styled.button`
   font-size: 0.75rem;
   font-weight: 700;
 
+  cursor: pointer;
+
   @media (min-width: 768px) {
     font-size: 1rem;
 

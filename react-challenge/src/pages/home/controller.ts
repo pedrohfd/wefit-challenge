@@ -2,8 +2,10 @@ import {
   getProducts,
   GetProductsResponse,
 } from '@/service/request/get-products'
+import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 
 export const useHomeController = () => {
   const [products, setProducts] = useState<GetProductsResponse[]>([])
@@ -15,12 +17,25 @@ export const useHomeController = () => {
   const navigate = useNavigate()
 
   const getProductsRequest = async () => {
-    setIsLoading(true)
-    const response = await getProducts()
+    try {
+      setIsLoading(true)
 
-    setFilteredProducts(response)
-    setProducts(response)
-    setIsLoading(false)
+      const response = await getProducts()
+
+      /**
+       * Timeout to see load component.
+       */
+      setTimeout(async () => {
+        setFilteredProducts(response)
+        setProducts(response)
+
+        setIsLoading(false)
+      }, 1000)
+    } catch (error) {
+      const e = error as AxiosError
+
+      toast.error(e.message)
+    }
   }
 
   const searchProducts = () => {

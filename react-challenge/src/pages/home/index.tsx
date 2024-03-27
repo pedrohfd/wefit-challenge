@@ -19,9 +19,9 @@ export const Home = () => {
     <Container>
       {isLoading && <Loader />}
 
-      {products.length === 0 && <ResourceNotFoundCard />}
+      {products.length === 0 && !isLoading && <ResourceNotFoundCard />}
 
-      {products.length > 0 && (
+      {products.length > 0 && !isLoading && (
         <SearchInput
           type="text"
           placeholder="Buscar filme pelo nome"
@@ -31,7 +31,7 @@ export const Home = () => {
         />
       )}
 
-      {filteredProducts.length > 0 && (
+      {filteredProducts.length > 0 && !isLoading && (
         <ProductCardArea>
           {filteredProducts.map((product) => (
             <ProductCard {...product} key={product.id} />
