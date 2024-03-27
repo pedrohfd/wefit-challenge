@@ -15,6 +15,7 @@ export const theme = {
     },
     green: {
       500: '#039B00',
+      600: '#007A00',
     },
   },
 } as const

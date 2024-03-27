@@ -1,8 +1,8 @@
 import { cartAtom } from '@/atoms/cart'
-import { useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
 
 export const useProductCardController = () => {
-  const setCart = useSetAtom(cartAtom)
+  const [cart, setCart] = useAtom(cartAtom)
 
   const handleAddToCart = (
     id: number,
@@ -25,5 +25,6 @@ export const useProductCardController = () => {
 
   return {
     handleAddToCart,
+    cart,
   }
 }

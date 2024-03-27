@@ -41,7 +41,7 @@ export const ProductCardPrice = styled.h1`
   color: ${({ theme }) => theme.colors.slate[500]};
 `
 
-export const ProductCardButton = styled.button`
+export const ProductCardButton = styled.button<{ isProductOnCard: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +53,11 @@ export const ProductCardButton = styled.button`
   border: none;
   border-radius: 0.25rem;
 
-  background-color: ${({ theme }) => theme.colors.blue[500]};
+  background-color: ${({ theme, isProductOnCard }) =>
+    !isProductOnCard && theme.colors.blue[500]};
+
+  background-color: ${({ theme, isProductOnCard }) =>
+    isProductOnCard && theme.colors.green[500]};
 
   color: ${({ theme }) => theme.colors.zinc[100]};
 
@@ -79,7 +83,11 @@ export const ProductCardButton = styled.button`
 
   @media (min-width: 768px) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.blue[600]};
+      background-color: ${({ theme, isProductOnCard }) =>
+        !isProductOnCard && theme.colors.blue[600]};
+
+      background-color: ${({ theme, isProductOnCard }) =>
+        isProductOnCard && theme.colors.green[600]};
     }
   }
 `

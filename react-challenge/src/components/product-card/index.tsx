@@ -17,7 +17,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
-  const { handleAddToCart } = useProductCardController()
+  const { handleAddToCart, cart } = useProductCardController()
 
   return (
     <ProductCardRoot>
@@ -30,9 +30,11 @@ export const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
       <ProductCardButton
         type="button"
         onClick={() => handleAddToCart(id, title, price, image)}
+        isProductOnCard={cart.some((item) => item.id === id)}
       >
         <div>
-          <CartIcon />0
+          <CartIcon />
+          {cart.find((item) => item.id === id)?.quantity ?? 0}
         </div>
         Adicionar ao carrinho
       </ProductCardButton>
