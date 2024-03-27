@@ -78,7 +78,11 @@ export const ProductCardButton = styled.button<{ isProductOnCard: boolean }>`
   transition: background-color 0.2s;
 
   &:active {
-    background-color: ${({ theme }) => theme.colors.blue[600]};
+    background-color: ${({ theme, isProductOnCard }) =>
+      !isProductOnCard && theme.colors.blue[600]};
+
+    background-color: ${({ theme, isProductOnCard }) =>
+      isProductOnCard && theme.colors.green[600]};
   }
 
   @media (min-width: 768px) {

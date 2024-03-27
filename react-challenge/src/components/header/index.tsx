@@ -8,13 +8,16 @@ import {
 } from './style'
 import { useAtomValue } from 'jotai'
 import { cartAtom } from '@/atoms/cart'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   const cart = useAtomValue(cartAtom)
 
   return (
     <HeaderRoot>
-      <Title>WeMovies</Title>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <Title>WeMovies</Title>
+      </Link>
 
       <span>
         <CartInfoArea>
@@ -22,7 +25,9 @@ export const Header = () => {
           <CartItemQuantity>{cart.length} itens</CartItemQuantity>
         </CartInfoArea>
 
-        <BasketIcon />
+        <Link to="/cart">
+          <BasketIcon />
+        </Link>
       </span>
     </HeaderRoot>
   )
