@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+## How to run
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Install Node.js: 
+   - Go to the official Node.js website (https://nodejs.org) and download the latest stable version for your operating system.
+   - Follow the installation instructions to complete the installation.
 
-Currently, two official plugins are available:
+2. Clone the repository:
+   - Open a terminal or command prompt.
+   - Navigate to the directory where you want to clone the repository.
+   - Run the following command to clone the repository:
+     ```
+     git clone https://github.com/your-username/your-repository.git
+     ```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. Install dependencies:
+   - Navigate to the project directory:
+     ```
+     cd your-repository
+     ```
+   - Run the following command to install the project dependencies:
+     ```
+     npm install
+     ```
 
-## Expanding the ESLint configuration
+4. Start the application:
+   - Run the following command to start the application:
+     ```
+     npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+     npm run server
+     ```     
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+5. Access the application:
+   - Open a web browser and enter the following URL:
+     ```
+     http://localhost:5173
+     ```
