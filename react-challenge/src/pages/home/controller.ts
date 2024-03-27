@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   getProducts,
   GetProductsResponse,
 } from '@/service/request/get-products'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const useHomeController = () => {
   const [products, setProducts] = useState<GetProductsResponse[]>([])
@@ -11,6 +13,7 @@ export const useHomeController = () => {
   >([])
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
+  const navigate = useNavigate()
 
   const getProductsRequest = async () => {
     setIsLoading(true)
@@ -22,11 +25,16 @@ export const useHomeController = () => {
   }
 
   const searchProducts = () => {
+    setIsLoading(true)
+
+    navigate(`/search?${new URLSearchParams({ 'search-query': search })}`)
+
     setFilteredProducts(
       products.filter((product) =>
         product.title.toLowerCase().includes(search.toLowerCase()),
       ),
     )
+    setIsLoading(false)
   }
 
   useEffect(() => {

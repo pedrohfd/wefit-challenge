@@ -1,4 +1,8 @@
 import { GetProductsResponse } from '@/service/request/get-products'
-import { atom } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
 
-export const cartAtom = atom<GetProductsResponse[]>([])
+interface CartItem extends GetProductsResponse {
+  quantity: number
+}
+
+export const cartAtom = atomWithStorage<CartItem[]>('cart', [])

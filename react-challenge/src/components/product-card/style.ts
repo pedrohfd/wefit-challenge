@@ -70,4 +70,16 @@ export const ProductCardButton = styled.button`
     align-items: center;
     justify-content: center;
   }
+
+  transition: background-color 0.2s;
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.blue[600]};
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.blue[600]};
+    }
+  }
 `

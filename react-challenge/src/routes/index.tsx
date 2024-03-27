@@ -14,6 +14,7 @@ export function Router() {
         }
       >
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Home />} />
       </Route>
     </Routes>
   )

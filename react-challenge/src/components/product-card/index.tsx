@@ -7,14 +7,18 @@ import {
   ProductCardButton,
 } from './style'
 import { formatCurrency } from '@/utils/format-currency'
+import { useProductCardController } from './controller'
 
 interface ProductCardProps {
+  id: number
   title: string
   price: number
   image: string
 }
 
-export const ProductCard = ({ title, price, image }: ProductCardProps) => {
+export const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
+  const { handleAddToCart } = useProductCardController()
+
   return (
     <ProductCardRoot>
       <ProductCardImage src={image} alt="movie cover" />
@@ -23,7 +27,10 @@ export const ProductCard = ({ title, price, image }: ProductCardProps) => {
 
       <ProductCardPrice>{formatCurrency(price)}</ProductCardPrice>
 
-      <ProductCardButton type="button">
+      <ProductCardButton
+        type="button"
+        onClick={() => handleAddToCart(id, title, price, image)}
+      >
         <div>
           <CartIcon />0
         </div>
