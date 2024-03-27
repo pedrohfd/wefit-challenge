@@ -1,6 +1,7 @@
 import { formatCurrency } from '@/utils/format-currency'
 import {
   CartProductCardBottomArea,
+  CartProductCardContent,
   CartProductCardPrice,
   CartProductCardQuantity,
   CartProductCardQuantityAdd,
@@ -41,12 +42,17 @@ export const CartProductCard = ({
     <CartProductCardRoot>
       <img src={image} alt="movie cover" />
 
-      <section>
+      <CartProductCardContent>
         <CartProductCardTopArea>
           <CartProductCardTitle>{title}</CartProductCardTitle>
 
+          <CartProductCardPrice className="web">
+            {formatCurrency(price)}
+          </CartProductCardPrice>
           <span>
-            <CartProductCardPrice>{formatCurrency(price)}</CartProductCardPrice>
+            <CartProductCardPrice className="mobile">
+              {formatCurrency(price)}
+            </CartProductCardPrice>
 
             <TrashIcon onClick={() => removeProduct(id)} />
           </span>
@@ -82,8 +88,10 @@ export const CartProductCard = ({
               {formatCurrency(price * quantity)}
             </CartProductCardTotalAmount>
           </span>
+
+          <TrashIcon onClick={() => removeProduct(id)} />
         </CartProductCardBottomArea>
-      </section>
+      </CartProductCardContent>
     </CartProductCardRoot>
   )
 }

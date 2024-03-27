@@ -3,21 +3,34 @@ import styled from 'styled-components'
 export const CartProductCardRoot = styled.div`
   display: flex;
 
-  section {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-  }
-
   & + & {
     margin-top: 1rem;
   }
 
   img {
     width: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    img {
+      width: 5.6rem;
+    }
+  }
+`
+
+export const CartProductCardContent = styled.section`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+
+    align-items: center;
   }
 `
 
@@ -35,6 +48,18 @@ export const CartProductCardTopArea = styled.span`
     align-items: center;
 
     gap: 1rem;
+
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    svg {
+      display: none;
+    }
   }
 `
 
@@ -47,6 +72,18 @@ export const CartProductCardBottomArea = styled.span`
   margin-left: 1rem;
 
   padding-right: 1rem;
+
+  svg {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    svg {
+      display: block;
+
+      cursor: pointer;
+    }
+  }
 `
 
 export const CartProductCardTitle = styled.p`
@@ -63,6 +100,20 @@ export const CartProductCardPrice = styled.p`
   font-weight: 700;
 
   color: ${({ theme }) => theme.colors.slate[500]};
+
+  &.web {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    &.web {
+      display: block;
+    }
+
+    &.mobile {
+      display: none;
+    }
+  }
 `
 
 export const CartProductCardQuantityArea = styled.div`
@@ -117,6 +168,10 @@ export const CartProductCardTotalAmountTitle = styled.p`
   font-weight: 700;
 
   color: ${({ theme }) => theme.colors.zinc[400]};
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `
 
 export const CartProductCardTotalAmount = styled.p`

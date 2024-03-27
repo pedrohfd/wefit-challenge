@@ -2,6 +2,8 @@ import {
   CheckoutButton,
   Container,
   Divider,
+  Title,
+  TitleArea,
   TotalCartAmountArea,
   TotalCartAmountTitle,
   TotalCartAmountValue,
@@ -20,6 +22,11 @@ export const Cart = () => {
 
   return (
     <Container>
+      <TitleArea>
+        <Title>Produto</Title>
+        <Title>QTD</Title>
+        <Title>Subtotal</Title>
+      </TitleArea>
       {cart.map((item) => (
         <CartProductCard
           key={item.id}
@@ -33,16 +40,18 @@ export const Cart = () => {
       <Divider />
 
       <TotalCartAmountArea>
-        <TotalCartAmountTitle>total</TotalCartAmountTitle>
+        <span>
+          <TotalCartAmountTitle>total</TotalCartAmountTitle>
 
-        <TotalCartAmountValue>
-          {formatCurrency(
-            cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-          )}
-        </TotalCartAmountValue>
+          <TotalCartAmountValue>
+            {formatCurrency(
+              cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+            )}
+          </TotalCartAmountValue>
+        </span>
+
+        <CheckoutButton type="button">finalizar pedido</CheckoutButton>
       </TotalCartAmountArea>
-
-      <CheckoutButton type="button">finalizar pedido</CheckoutButton>
     </Container>
   )
 }

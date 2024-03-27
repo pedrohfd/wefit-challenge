@@ -12,9 +12,8 @@ export const Container = styled.div`
   padding-bottom: 1rem;
 
   @media (min-width: 768px) {
-    height: calc(100vh - 5.25rem);
-
     padding: 0 12rem;
+    padding-bottom: 2rem;
   }
 `
 
