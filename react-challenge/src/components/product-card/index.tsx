@@ -30,7 +30,7 @@ export const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
       <ProductCardButton
         type="button"
         onClick={() => handleAddToCart(id, title, price, image)}
-        isProductOnCard={cart.some((item) => item.id === id)}
+        $isProductOnCard={cart.some((item) => item.id === id)}
       >
         <div>
           <CartIcon />

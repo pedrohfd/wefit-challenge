@@ -41,7 +41,7 @@ export const ProductCardPrice = styled.h1`
   color: ${({ theme }) => theme.colors.slate[500]};
 `
 
-export const ProductCardButton = styled.button<{ isProductOnCard: boolean }>`
+export const ProductCardButton = styled.button<{ $isProductOnCard: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,11 +53,11 @@ export const ProductCardButton = styled.button<{ isProductOnCard: boolean }>`
   border: none;
   border-radius: 0.25rem;
 
-  background-color: ${({ theme, isProductOnCard }) =>
-    !isProductOnCard && theme.colors.blue[500]};
+  background-color: ${({ theme, $isProductOnCard }) =>
+    !$isProductOnCard && theme.colors.blue[500]};
 
-  background-color: ${({ theme, isProductOnCard }) =>
-    isProductOnCard && theme.colors.green[500]};
+  background-color: ${({ theme, $isProductOnCard }) =>
+    $isProductOnCard && theme.colors.green[500]};
 
   color: ${({ theme }) => theme.colors.zinc[100]};
 
@@ -78,20 +78,20 @@ export const ProductCardButton = styled.button<{ isProductOnCard: boolean }>`
   transition: background-color 0.2s;
 
   &:active {
-    background-color: ${({ theme, isProductOnCard }) =>
-      !isProductOnCard && theme.colors.blue[600]};
+    background-color: ${({ theme, $isProductOnCard }) =>
+      !$isProductOnCard && theme.colors.blue[600]};
 
-    background-color: ${({ theme, isProductOnCard }) =>
-      isProductOnCard && theme.colors.green[600]};
+    background-color: ${({ theme, $isProductOnCard }) =>
+      $isProductOnCard && theme.colors.green[600]};
   }
 
   @media (min-width: 768px) {
     &:hover {
-      background-color: ${({ theme, isProductOnCard }) =>
-        !isProductOnCard && theme.colors.blue[600]};
+      background-color: ${({ theme, $isProductOnCard }) =>
+        !$isProductOnCard && theme.colors.blue[600]};
 
-      background-color: ${({ theme, isProductOnCard }) =>
-        isProductOnCard && theme.colors.green[600]};
+      background-color: ${({ theme, $isProductOnCard }) =>
+        $isProductOnCard && theme.colors.green[600]};
     }
   }
 `

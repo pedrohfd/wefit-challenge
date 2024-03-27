@@ -68,7 +68,6 @@ export const TotalCartAmountArea = styled.span`
 
       gap: 2rem;
     }
-    /* justify-content: space-between; */
   }
 `
 

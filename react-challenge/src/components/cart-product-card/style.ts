@@ -88,7 +88,7 @@ export const CartProductCardBottomArea = styled.span`
 
   padding-right: 1rem;
 
-  svg {
+  span + svg {
     display: none;
   }
 
