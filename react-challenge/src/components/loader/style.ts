@@ -26,4 +26,6 @@ export const Container = styled.div`
   mask-composite: subtract;
 
   animation: ${loadAnimation} 2s infinite linear;
+
+  margin-top: 3rem;
 `

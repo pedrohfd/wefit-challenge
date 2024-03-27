@@ -7,7 +7,8 @@ import { ProductCard } from '@/components/product-card'
 
 export const Home = () => {
   const {
-    isLoading,
+    isFetchingProducts,
+    isSearchingProducts,
     search,
     setSearch,
     filteredProducts,
@@ -17,11 +18,9 @@ export const Home = () => {
 
   return (
     <Container>
-      {isLoading && <Loader />}
+      {products.length === 0 && !isFetchingProducts && <ResourceNotFoundCard />}
 
-      {products.length === 0 && !isLoading && <ResourceNotFoundCard />}
-
-      {products.length > 0 && !isLoading && (
+      {products.length > 0 && !isFetchingProducts && (
         <SearchInput
           type="text"
           placeholder="Buscar filme pelo nome"
@@ -31,13 +30,19 @@ export const Home = () => {
         />
       )}
 
-      {filteredProducts.length > 0 && !isLoading && (
-        <ProductCardArea>
-          {filteredProducts.map((product) => (
-            <ProductCard {...product} key={product.id} />
-          ))}
-        </ProductCardArea>
-      )}
+      {isFetchingProducts && <Loader />}
+
+      {isSearchingProducts && <Loader />}
+
+      {filteredProducts.length > 0 &&
+        !isFetchingProducts &&
+        !isSearchingProducts && (
+          <ProductCardArea>
+            {filteredProducts.map((product) => (
+              <ProductCard {...product} key={product.id} />
+            ))}
+          </ProductCardArea>
+        )}
     </Container>
   )
 }

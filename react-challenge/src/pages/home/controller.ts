@@ -2,6 +2,7 @@ import {
   getProducts,
   GetProductsResponse,
 } from '@/service/request/get-products'
+import { removeAccents } from '@/utils/remove-accents'
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -12,13 +13,14 @@ export const useHomeController = () => {
   const [filteredProducts, setFilteredProducts] = useState<
     GetProductsResponse[]
   >([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isFetchingProducts, setIsFetchingProducts] = useState(false)
+  const [isSearchingProducts, setIsSearchingProducts] = useState(false)
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
 
   const getProductsRequest = async () => {
     try {
-      setIsLoading(true)
+      setIsFetchingProducts(true)
 
       const response = await getProducts()
 
@@ -29,7 +31,7 @@ export const useHomeController = () => {
         setFilteredProducts(response)
         setProducts(response)
 
-        setIsLoading(false)
+        setIsFetchingProducts(false)
       }, 1000)
     } catch (error) {
       const e = error as AxiosError
@@ -39,16 +41,20 @@ export const useHomeController = () => {
   }
 
   const searchProducts = () => {
-    setIsLoading(true)
+    setIsSearchingProducts(true)
 
     navigate(`/search?${new URLSearchParams({ 'search-query': search })}`)
 
-    setFilteredProducts(
-      products.filter((product) =>
-        product.title.toLowerCase().includes(search.toLowerCase()),
-      ),
-    )
-    setIsLoading(false)
+    setTimeout(() => {
+      setFilteredProducts(
+        products.filter((product) =>
+          removeAccents(product.title.toLowerCase()).includes(
+            removeAccents(search.toLowerCase()),
+          ),
+        ),
+      )
+      setIsSearchingProducts(false)
+    }, 400)
   }
 
   useEffect(() => {
@@ -57,7 +63,8 @@ export const useHomeController = () => {
 
   return {
     products,
-    isLoading,
+    isFetchingProducts,
+    isSearchingProducts,
     search,
     setSearch,
     searchProducts,

@@ -18,8 +18,15 @@ export const SearchInputRoot = styled.div`
 
   transition: border 0.2s;
 
+  button {
+    color: ${({ theme }) => theme.colors.zinc[300]};
+  }
+
   &:focus-within {
     border: 2px solid ${({ theme }) => theme.colors.blue[500]};
+    button {
+      color: ${({ theme }) => theme.colors.slate[500]};
+    }
   }
 `
 
@@ -43,9 +50,6 @@ export const Input = styled.input`
   }
 
   outline: none;
-
-  @media (min-width: 768px) {
-  }
 `
 
 export const Button = styled.button`
@@ -54,4 +58,6 @@ export const Button = styled.button`
   border: none;
 
   cursor: pointer;
+
+  transition: color 0.2s;
 `
